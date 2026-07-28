@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Selecione entre as 5 opções de design desenvolvidas para a landing page corporativa da PB Aviation.">
+    <title>PB Aviation | Modelos de Landing Page</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --gold-primary: #bda078;
+            --gold-dark: #a8885c;
+            --bg-warm: #faf8f5;
+            --text-dark: #2c2925;
+            --text-muted: #6e685f;
+            --border-color: #eae5de;
+            --font-serif: 'Cormorant Garamond', Georgia, serif;
+            --font-sans: 'Montserrat', sans-serif;
+            --transition-smooth: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-warm);
+            color: var(--text-dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .header {
+            padding: 4rem 2rem 2rem;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+            background-color: #ffffff;
+        }
+
+        .logo-symbol {
+            margin-bottom: 1rem;
+            color: var(--gold-primary);
+        }
+
+        .logo-title {
+            font-family: var(--font-serif);
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            color: var(--text-dark);
+            line-height: 1.1;
+        }
+
+        .logo-subtitle {
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.25em;
+            color: var(--text-muted);
+            margin-top: 0.3rem;
+            text-transform: uppercase;
+        }
+
+        .main-content {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            width: 100%;
+            flex-grow: 1;
+        }
+
+        .intro-text {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+
+        .intro-title {
+            font-family: var(--font-serif);
+            font-size: 2.8rem;
+            font-weight: 300;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .intro-lead {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .models-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .model-card {
+            background-color: #ffffff;
+            border: 1px solid var(--border-color);
+            padding: 3rem 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 380px;
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .model-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(189, 160, 120, 0.1);
+            border-color: var(--gold-primary);
+        }
+
+        .model-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: var(--gold-primary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: var(--transition-smooth);
+        }
+
+        .model-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .model-number {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: var(--gold-dark);
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .model-title {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .model-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            flex-grow: 1;
+        }
+
+        .btn-preview {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            padding: 1rem 2rem;
+            background-color: var(--gold-primary);
+            color: #ffffff;
+            border: 1px solid var(--gold-primary);
+            transition: var(--transition-smooth);
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .btn-preview:hover {
+            background-color: var(--gold-dark);
+            border-color: var(--gold-dark);
+        }
+
+        .btn-preview svg {
+            margin-left: 0.5rem;
+            transition: var(--transition-smooth);
+        }
+
+        .btn-preview:hover svg {
+            transform: translateX(4px);
+        }
+
+        .footer {
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            background-color: #ffffff;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* Specific model badges */
+        .badge {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            padding: 0.3rem 0.6rem;
+            background-color: var(--bg-warm);
+            color: var(--gold-dark);
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 768px) {
+            .intro-title {
+                font-size: 2.2rem;
+            }
+            .main-content {
+                margin: 2rem auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Branding Header -->
+    <header class="header">
+        <svg class="logo-symbol" viewBox="0 0 100 100" width="45" height="45" fill="none" stroke="currentColor">
+            <!-- Outer abstract golden ring segments -->
+            <path d="M 50 10 A 40 40 0 0 1 90 50" stroke="#bda078" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M 50 90 A 40 40 0 0 1 10 50" stroke="#bda078" stroke-width="2.5" stroke-linecap="round"/>
+            
+            <!-- Monogram initials + wing graphic -->
+            <path d="M 38 28 L 38 72" stroke="#bda078" stroke-width="4.5" stroke-linecap="round"/>
+            <path d="M 38 28 C 48 28, 54 36, 46 44 C 41 48, 38 48, 38 48" stroke="#bda078" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M 38 48 C 50 48, 56 58, 48 66 C 42 72, 38 72, 38 72" stroke="#bda078" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M 28 58 L 72 32 L 60 52 L 40 52" fill="#bda078" opacity="0.95"/>
+        </svg>
+        <h1 class="logo-title">PB AVIATION</h1>
+        <p class="logo-subtitle">PERSONAL BUSINESS AVIATION</p>
+    </header>
+
+    <!-- Hub Cards Selection -->
+    <main class="main-content">
+        <div class="intro-text">
+            <h2 class="intro-title">Variações de Design</h2>
+            <p class="intro-lead">Selecione uma das 5 variações de alta fidelidade desenvolvidas para o projeto da Landing Page Corporativa da PB Aviation.</p>
+        </div>
+
+        <div class="models-grid">
+            <!-- Model 01 -->
+            <div class="model-card">
+                <span class="badge" style="background-color: #fcf8f0;">Mockup Original</span>
+                <div>
+                    <span class="model-number">Modelo 01</span>
+                    <h3 class="model-title">Areia e Dourado</h3>
+                    <p class="model-desc">O design clássico baseado no protótipo original. Apresenta cores quentes e suaves, fundo off-white/cream e o jato principal ocupando o fundo da seção inicial de forma integrada.</p>
+                </div>
+                <a href="modelo-01/index.html" class="btn-preview">
+                    PREVIEW MODELO
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Model 02 -->
+            <div class="model-card">
+                <span class="badge" style="background-color: #2b2b2b; color: #d4af37;">Dark Premium</span>
+                <div>
+                    <span class="model-number">Modelo 02</span>
+                    <h3 class="model-title">Preto e Ouro</h3>
+                    <p class="model-desc">Versão noturna ultra elegante. Fundo preto carvão profundo com detalhes dourados de alto brilho e inputs de formulário escurecidos, excelente para marcas de altíssimo luxo.</p>
+                </div>
+                <a href="modelo-02/index.html" class="btn-preview" style="background-color: #d4af37; border-color: #d4af37;">
+                    PREVIEW MODELO
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Model 03 -->
+            <div class="model-card">
+                <span class="badge" style="background-color: #e6f0fa; color: #0a1931;">Corporate Navy</span>
+                <div>
+                    <span class="model-number">Modelo 03</span>
+                    <h3 class="model-title">Azul Marinho e Bronze</h3>
+                    <p class="model-desc">Estilo corporativo executivo tradicional. Substitui o tom preto por um azul escuro náutico profundo, transmitindo máxima credibilidade institucional, segurança e seriedade.</p>
+                </div>
+                <a href="modelo-03/index.html" class="btn-preview" style="background-color: #0a1931; border-color: #0a1931;">
+                    PREVIEW MODELO
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Model 04 -->
+            <div class="model-card">
+                <span class="badge" style="background-color: #f5f5f5; color: #000;">Editorial Minimal</span>
+                <div>
+                    <span class="model-number">Modelo 04</span>
+                    <h3 class="model-title">Editorial Contraste</h3>
+                    <p class="model-desc">Inspirado em layouts de revistas de moda e design de alta costura. Utiliza tons de cinza claro, bordas pretas sólidas muito finas, ausência de sombras e uma estética clean de vanguarda.</p>
+                </div>
+                <a href="modelo-04/index.html" class="btn-preview" style="background-color: #000000; border-color: #000000;">
+                    PREVIEW MODELO
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Model 05 -->
+            <div class="model-card">
+                <span class="badge" style="background-color: rgba(189,160,120,0.1); color: #bda078;">Tech Luxury</span>
+                <div>
+                    <span class="model-number">Modelo 05</span>
+                    <h3 class="model-title">Vidro Glassmorphic</h3>
+                    <p class="model-desc">Visual tecnológico moderno de alta fidelidade. Utiliza transparências jateadas com desfoque de fundo (backdrop-filter) e bordas finas semi-translúcidas com iluminação neon.</p>
+                </div>
+                <a href="modelo-05/index.html" class="btn-preview" style="background-color: #bda078; border-color: #bda078;">
+                    PREVIEW MODELO
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2026 PB AVIATION. Todos os direitos reservados. Design corporativo de alta fidelidade.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.7rem; color: var(--text-muted);">
+            Desenvolvido por <strong>Patrício Silva</strong> (<a href="mailto:ertprs_ubatuba@hotmail.com" style="color: var(--gold-dark); text-decoration: underline;">ubatechsolutions</a>) | WhatsApp: <a href="https://wa.me/5512997673301" target="_blank" style="color: var(--gold-dark); text-decoration: underline;">(12) 99767-3301</a>
+        </p>
+    </footer>
+
+</body>
+</html>
