@@ -147,7 +147,7 @@ img {
     left: 0;
     width: 100%;
     background-color: rgba(250, 248, 245, 0.95);
-    border-bottom: none;
+    border-bottom: 1px solid var(--border-color);
     z-index: 1000;
     transition: var(--transition-smooth);
 }
@@ -164,17 +164,6 @@ img {
     z-index: 0;
 }
 
-.main-header::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(to right, #9f792f 0%, #dabb6a 50%, #a47733 100%);
-    z-index: 2;
-}
-
 .main-header.scrolled {
     padding: 0.5rem 0;
     box-shadow: var(--shadow-subtle);
@@ -184,7 +173,7 @@ img {
 .header-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0.9rem 2rem;
+    padding: 1.25rem 2rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -340,7 +329,7 @@ img {
 
 /* 5. Quem Somos Section */
 .quem-somos-section {
-    padding: 3.5rem 0;
+    padding: 6rem 0;
     background-color: #ffffff;
 }
 
@@ -378,7 +367,7 @@ img {
 
 /* 6. Serviços Section */
 .servicos-section {
-    padding: 3.5rem 0;
+    padding: 6rem 0;
     background-color: var(--bg-warm);
     border-top: 1px solid var(--border-color);
 }
@@ -387,7 +376,7 @@ img {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
-    margin-top: 2.5rem;
+    margin-top: 4rem;
 }
 
 .service-window-wrapper {
@@ -515,7 +504,7 @@ img {
 
 /* 8. Vantagens Section */
 .vantagens-section {
-    padding: 3.5rem 0;
+    padding: 6rem 0;
     background-color: #ffffff;
 }
 
@@ -523,7 +512,7 @@ img {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
-    margin-top: 2.5rem;
+    margin-top: 4rem;
 }
 
 .vantagem-card {
@@ -564,7 +553,7 @@ img {
 
 /* 9. Detail Section */
 .detail-section {
-    padding: 3.5rem 0;
+    padding: 6rem 0;
     background-color: var(--bg-warm);
     border-top: 1px solid var(--border-color);
 }
@@ -617,7 +606,7 @@ img {
 
 /* 10. Bottom Branding Banner */
 .bottom-banner-section {
-    padding: 4.5rem 0;
+    padding: 7rem 0;
     background-size: cover;
     background-position: center;
     display: flex;
@@ -667,14 +656,14 @@ img {
 
 /* 11. Contact Form Section */
 .contact-section {
-    padding: 3.5rem 0;
+    padding: 6rem 0;
     background-color: #ffffff;
     border-top: 1px solid var(--border-color);
 }
 
 .contact-header {
     max-width: 800px;
-    margin: 0 auto 2.5rem;
+    margin: 0 auto 4rem;
     text-align: center;
 }
 
