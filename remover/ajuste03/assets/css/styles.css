@@ -649,16 +649,6 @@ img {
     100% { transform: translateY(0); }
 }
 
-.brand-symbol {
-    margin-bottom: 1.75rem;
-    animation: symbolGlow 3s ease-in-out infinite;
-}
-
-@keyframes symbolGlow {
-    0%, 100% { filter: drop-shadow(0 0 6px rgba(219, 188, 106, 0.35)); }
-    50% { filter: drop-shadow(0 0 18px rgba(219, 188, 106, 0.75)); }
-}
-
 .brand-title {
     font-family: var(--font-serif);
     font-size: 3.5rem;
