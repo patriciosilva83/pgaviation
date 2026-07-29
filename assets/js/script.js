@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
        4. Contact Form Simulation
        ========================================== */
     if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
+        contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
 
             // Form Fields
@@ -95,6 +95,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const email = document.getElementById('form-email').value.trim();
             const phone = document.getElementById('form-phone').value.trim();
             const message = document.getElementById('form-message').value.trim();
+
+            // Honeypot anti-spam: se preenchido, é bot -> abandona silenciosamente
+            const botField = contactForm.querySelector('input[name="botcheck"]');
+            if (botField && botField.checked) {
+                return;
+            }
 
             const submitBtn = contactForm.querySelector('button[type="submit"]');
             const originalBtnText = submitBtn.textContent;
@@ -110,25 +116,45 @@ document.addEventListener('DOMContentLoaded', () => {
             submitBtn.textContent = 'ENVIANDO...';
             submitBtn.style.opacity = '0.7';
 
-            // Simulate server request delay
-            setTimeout(() => {
-                // Mock success
-                showFormResponse('Obrigado! Sua mensagem foi enviada com sucesso. Entraremos em contato em breve.', 'success');
-                contactForm.reset();
-                
+            try {
+                // Envia via Web3Forms (não precisa de servidor próprio)
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify({
+                        access_key: contactForm.querySelector('input[name="access_key"]').value,
+                        subject: contactForm.querySelector('input[name="subject"]').value,
+                        from_name: contactForm.querySelector('input[name="from_name"]').value,
+                        name: name,
+                        email: email,
+                        phone: phone,
+                        message: message
+                    })
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    showFormResponse('Obrigado! Sua mensagem foi enviada com sucesso. Entraremos em contato em breve.', 'success');
+                    contactForm.reset();
+                } else {
+                    showFormResponse('Não foi possível enviar agora. Tente novamente ou fale pelo WhatsApp.', 'error');
+                }
+            } catch (err) {
+                showFormResponse('Erro de conexão. Tente novamente ou fale pelo WhatsApp.', 'error');
+            } finally {
                 // Restore button
                 submitBtn.disabled = false;
                 submitBtn.textContent = originalBtnText;
                 submitBtn.style.opacity = '1';
-                
-                // Clear success message after 7 seconds
+
+                // Clear message after 7 seconds
                 setTimeout(() => {
                     formResponse.style.display = 'none';
                     formResponse.className = 'form-response';
                     formResponse.textContent = '';
                 }, 7000);
-
-            }, 1800);
+            }
         });
     }
 
